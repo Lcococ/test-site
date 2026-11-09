@@ -1,34 +1,375 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <title>测试网站</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: -apple-system, "Microsoft YaHei", sans-serif;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg,#f093fb 0%,#f5576c 100%);
-      color: #fff;
-    }
-    .card {
-      text-align: center;
-      padding: 15% 8%;
-      background: rgba(255,255,255,0.15);
-      border-radius: 1.5em;
-      box-shadow: 0 0 2em rgba(0,0,0,0.3);
-    }
-    h1 { font-size: 2.2em; margin-bottom: 0.5em; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 动态 7 日简报 · 2026.11.02 – 11.09</title>
+<style>
+:root{
+  --bg:#0d1117; --surface:#161b22; --surface2:#1b222c;
+  --line:#2a3441; --text:#e6edf3; --muted:#9aa7b4; --dim:#6e7b89;
+  --c1:#7ee2b8; --c2:#79c0ff; --c3:#ffb86b; --c4:#c9a2ff;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:1rem;-webkit-font-smoothing:antialiased}
+.wrap{max-width:60rem;margin:0 auto;padding:2.6rem 1.3rem 4rem}
+header{border-bottom:0.06em solid var(--line);padding-bottom:2rem;margin-bottom:2rem}
+.kicker{color:var(--c1);font-size:0.8rem;letter-spacing:0.22em}
+h1{font-size:2.2rem;line-height:1.25;margin:0.6rem 0;font-weight:600;letter-spacing:0.02em}
+.period{color:var(--muted);font-size:0.98rem}
+.meta{display:flex;gap:2rem;flex-wrap:wrap;margin-top:1.6rem}
+.meta div{display:flex;flex-direction:column}
+.meta b{color:var(--c2);font-size:1.35rem;font-weight:600;line-height:1.3}
+.meta span{color:var(--dim);font-size:0.8rem}
+nav{display:flex;gap:0.6rem;flex-wrap:wrap;margin-bottom:2.2rem}
+nav a{color:var(--muted);text-decoration:none;border:0.06em solid var(--line);border-radius:2em;padding:0.35rem 0.95rem;font-size:0.85rem;background:var(--surface)}
+.summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1rem;margin-bottom:2.8rem}
+.summary article{background:var(--surface);border:0.06em solid var(--line);border-radius:0.8em;padding:1.35rem;border-top:0.2em solid var(--accent,var(--c2))}
+.summary .num{color:var(--accent,var(--c2));font-size:0.78rem;letter-spacing:0.1em}
+.summary h2{font-size:1.05rem;margin:0.45rem 0;font-weight:600}
+.summary p{color:var(--muted);font-size:0.88rem}
+section{margin-bottom:3rem}
+#models{--accent:var(--c2)}
+#ecosystem{--accent:var(--c1)}
+#capital{--accent:var(--c3)}
+#policy{--accent:var(--c4)}
+.section-head{display:flex;align-items:baseline;gap:0.9rem;flex-wrap:wrap;border-left:0.24em solid var(--accent,var(--c2));padding-left:0.95rem;margin-bottom:1.3rem}
+.section-head h2{font-size:1.4rem;font-weight:600}
+.section-head span{color:var(--dim);font-size:0.85rem}
+.item{display:grid;grid-template-columns:4.4rem 1fr;gap:1rem;padding:1.05rem 0;border-bottom:0.06em solid var(--line)}
+.item:last-child{border-bottom:none}
+.date{color:var(--accent,var(--c3));font-size:0.85rem;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;padding-top:0.28rem;white-space:nowrap}
+.item h3{font-size:1.02rem;font-weight:600;margin-bottom:0.35rem;line-height:1.5}
+.item p{color:var(--muted);font-size:0.9rem}
+.src{display:inline-block;margin-top:0.55rem;color:var(--dim);font-size:0.78rem;border:0.06em solid var(--line);border-radius:0.35em;padding:0.1rem 0.5rem}
+.flag{color:var(--c3)}
+.notes{background:var(--surface2);border:0.06em solid var(--line);border-radius:0.8em;padding:1.6rem 1.8rem}
+.notes h2{font-size:1.15rem;margin-bottom:0.9rem;color:var(--c3);font-weight:600}
+.notes ul{margin-left:1.2rem}
+.notes li{color:var(--muted);font-size:0.88rem;margin-bottom:0.55rem}
+.notes strong{color:var(--text);font-weight:600}
+footer{border-top:0.06em solid var(--line);padding-top:1.5rem;color:var(--dim);font-size:0.82rem;line-height:1.9}
+footer b{color:var(--muted);font-weight:600}
+@media(max-width:40rem){
+  h1{font-size:1.65rem}
+  .wrap{padding:1.8rem 1rem 3rem}
+  .item{grid-template-columns:1fr;gap:0.3rem}
+  .date{padding-top:0}
+  .meta{gap:1.2rem}
+}
+</style>
 </head>
 <body>
-  <div class="card">
-    <h1>Hello GitHub Pages 测试网站</h1>
-    <p>如果你的浏览器能看到这段文字，说明部署成功了。</p>
-    <p>部署时间：2026-11-09</p>
+<div class="wrap">
+
+<header>
+  <div class="kicker">WEEKLY AI BRIEFING</div>
+  <h1>AI 动态 7 日简报</h1>
+  <div class="period">2026 年 11 月 2 日 — 11 月 9 日 · 按公开报道整理</div>
+  <div class="meta">
+    <div><b>26</b><span>收录条目</span></div>
+    <div><b>4</b><span>主题板块</span></div>
+    <div><b>11.09</b><span>数据截止</span></div>
+    <div><b>多源</b><span>交叉核实</span></div>
   </div>
+</header>
+
+<nav>
+  <a href="#models">模型与技术</a>
+  <a href="#ecosystem">生态与格局</a>
+  <a href="#capital">资本与算力</a>
+  <a href="#policy">政策与治理</a>
+  <a href="#notes">核实说明</a>
+</nav>
+
+<div class="summary">
+  <article style="--accent:var(--c2)">
+    <div class="num">主线 01</div>
+    <h2>专用模型登台，安全成为产品维度</h2>
+    <p>GPT-6 Cyber 被定为 Critical 级、仅向审核客户开放，是首个把「能力 + 管控」打包发布的信号；视频、图像、理财等垂直能力同期密集迭代。</p>
+  </article>
+  <article style="--accent:var(--c1)">
+    <div class="num">主线 02</div>
+    <h2>国产模型密集发布，调用量连续领跑</h2>
+    <p>一周内 Hy4、ERNIE 5.5 Flash Base、Ling-3.2-flash、LongCat-2.5 集中亮相；中国大模型周调用量连续 28 周居首。但「发布即开源」的口径需逐条辨别。</p>
+  </article>
+  <article style="--accent:var(--c3)">
+    <div class="num">主线 03</div>
+    <h2>资本高位震荡，基建与监管同步收紧</h2>
+    <p>OpenAI 约 110 亿美元融资落地、估值 1.25 万亿美元；同期 AI 股大幅回调，地方对数据中心的反弹促使厂商承诺自付电力成本。</p>
+  </article>
+</div>
+
+<section id="models">
+  <div class="section-head"><h2>模型与技术</h2><span>11 条 · 发布 / 能力 / 开源</span></div>
+
+  <div class="item">
+    <div class="date">11.04</div>
+    <div>
+      <h3>腾讯混元 Hy4 正式发布，首次支持视觉理解与电脑操作</h3>
+      <p>总参数 770B 的 MoE 架构，相比预览版扩大预训练与后训练规模，首次引入视觉理解与 Computer Use，可结合命令行与图形界面处理图表文档、Blender / CAD 等长程任务，支持 1M 上下文。发布首周即进入 OpenRouter 周调用量第 4（12.8 万亿 Token）。<span class="flag">官方表述为「权重将于近期开源」。</span></p>
+      <span class="src">科创板日报 · 每日经济新闻 · 网易科技</span>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="date">11.05</div>
+    <div>
+      <h3>百度开源文心 ERNIE 5.5 Flash Base</h3>
+      <p>280B 总参数 MoE、每 Token 激活 14B，用 33.5 万亿 Token 完成预训练；训练上下文 128K，微调与推理最长支持 1M。FP8 与 BF16 两版权重已上线 Hugging Face 并附许可协议，<span class="flag">是本周唯一核到确切权重仓库的模型</span>。官方称多项基准刷新同尺寸 SOTA。</p>
+      <span class="src">新华网 · TechWeb · CSDN DevPress</span>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="date">11.05</div>
+    <div>
+      <h3>蚂蚁集团发布 Ling-3.2-flash 多模态模型</h3>
+      <p>560B 总参数 MoE、约 25B 激活，支持图像 / 文本 / 视频输入与 1M 上下文。官方自测 OmniDocBench 1.5 得 92.21（对比 Claude Opus 5 的 90.56），并强调这不等同于语言推理或代码能力领先。兼容 OpenAI 与 Anthropic API 格式，接口上线前两周限时免费，<span class="flag">未宣布开源</span>。</p>
+      <span class="src">AI Times · No Code MBA · 行业日报</span>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="date">11.02</div>
+    <div>
+      <h3>美团发布 LongCat-2.5，主打全国产算力训练</h3>
+      <p>总参数 1.6 万亿、单次推理激活约 480 亿，原生支持 100 万 Token 上下文，官方称训练全程使用国产算力集群，单卡训练吞吐较 DDP 基线提升 86%，API 已开放。<span class="flag">该条主要来自行业周报汇总，建议以官方公告为准。</span></p>
+      <span class="src">W45 科技周报 · HeadsUpAI（单源汇总）</span>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="date">11.06</div>
+    <div>
+      <h3>OpenAI 推出网络安全专用模型 GPT-6 Cyber</h3>
+      <p>ExploitGym 得分 48.5%（上代 GPT-5.6 Cyber 为 32.1%），网络安全风险等级由 High 升至 <span class="flag">Critical</span>。官方称协助发现 81 个 Firefox 未知高危漏洞、为 948 个 Linux 内核问题生成可用提权利用，并称对齐测试中 99.93%–100% 未越出授权范围。首批仅通过 API 与 Codex 向审核通过的 Daybreak Red 客户开放。</p>
+      <span class="src">界面新闻 · Reuters 转述 · senx.ai · AI Museum</span>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="date">11.04</div>
+    <div>
+      <h3>OpenAI 发布 Images 2.6</h3>
+      <p>ChatGPT、Codex 与 API 同步上线，生成速度约提升 50%，新增循环 GIF、可标记的持久参考图与更强的一致性编辑；API 提供 GPT-Image-2.6 Flare 与 Sunburst 两个变体。</p>
+      <span class="src">OpenAI · AI Briefing · No Code MBA</span>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="date">11.05</div>
+    <div>
+      <h3>Google Gemini Omni 1.2 Flash 全面开放</h3>
+      <p>原生 15 秒视频生成（此前 10 秒，可按秒在 3–15 秒间选择）、多轮对话式编辑、更强的角色与风格参考遵循；720p 定价每秒 0.07 美元，较 1.1 版本降价 30%，输出带 SynthID 水印。已覆盖 Gemini API、AI Studio、Google Vids 与 Gemini for Business。</p>
+      <span class="src">界面新闻 · 凤凰网科技 · senx.ai</span>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="date">11.06</div>
+    <div>
+      <h3>Anthropic 为 Claude 上线个人财务功能</h3>
+      <p>面向美国 Pro / Max / Ultra 订阅用户测试，经 Plaid 以只读权限连接银行与银行卡，可用自然语言查询余额、账单与消费结构。<span class="flag">不能转账、不提供投资建议</span>，对话不用于训练、不植入广告或金融产品推荐。</p>
+      <span class="src">华尔街见闻 · 新浪财经 · AI Museum</span>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="date">11.08</div>
+    <div>
+      <h3>DeepSeek Harness 披露生态规模，次日发布 Super-agent 架构文章</h3>
+      <p>开源 Agent 平台 Harness 截至 11 月 4 日日活 154 万、日均消耗约 92 万亿 Token、约 3.5 万第三方插件，约 60% 活跃用户至少安装了一个插件，并计划推出官方插件市场。11 月 9 日团队另发布面向工程实践的 Super-agent 架构探讨，讨论主动发现问题与 24 小时在线运行。</p>
+      <span class="src">Bloomberg · DeepSeek Harness 官方 · 量子位</span>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="date">11.07</div>
+    <div>
+      <h3>Google Antigravity 推出 Remote Agents</h3>
+      <p>Agent 会话运行在隔离云端虚拟机，设备离线后任务继续，权限审批可在移动端完成；项目支持挂载 GitHub 仓库与 Google Drive 文件，插件在网页、App 与 CLI 间同步。<span class="flag">单源报道，细节待官方确认。</span></p>
+      <span class="src">HeadsUpAI（单源）</span>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="date">11.08</div>
+    <div>
+      <h3>阿里 Qwen 4 仅处于预热，尚无权重与日期</h3>
+      <p>Qwen 团队发布「The becoming begins」预告，Hugging Face 出现 qwen4_exp 标签，引发多万亿参数猜测。<span class="flag">官方仅确认在研，未发布权重、规格或时间表</span>，请勿按「已发布」引用。</p>
+      <span class="src">AI Briefing · Hugging Face 标签（待官方发布）</span>
+    </div>
+  </div>
+</section>
+
+<section id="ecosystem">
+  <div class="section-head"><h2>生态与格局</h2><span>5 条 · 调用量 / 入口 / 开源治理</span></div>
+
+  <div class="item">
+    <div class="date">11.09</div>
+    <div>
+      <h3>中国大模型周调用量连续 28 周全球第一</h3>
+      <p>11 月 2–8 日全球大模型总调用量 210 万亿 Token（环比 +8.25%），其中中国模型 116.18 万亿（+16.71%）、美国模型 13.98 万亿（-32.4%）。前五名中国模型占四席：DeepSeek V4.1 Flash 1017 以 56 万亿居首，智谱 GLM 5.3 Flash 第三，新发布的混元 Hy4 首周即第四。<span class="flag">该统计仅涵盖特定平台转发的 API 流量，不含厂商自营 API、云服务、私有化部署与网页端，不等同于全球市场份额。</span></p>
+      <span class="src">每日经济新闻据 OpenRouter 测算 · 中关村在线</span>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="date">11.07</div>
+    <div>
+      <h3>报告称美国企业开源模型支出 89% 流向中国模型</h3>
+      <p>门罗风投（Menlo Ventures）《2026 年企业 AI 现状报告》显示，美国企业用于开源模型的支出中 89% 付给中国模型，前三名为 Kimi 61%、DeepSeek 15%、GLM 11%。</p>
+      <span class="src">第一财经（经腾讯网转述）</span>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="date">11.04</div>
+    <div>
+      <h3>国行 Apple 智能开放测试，接入阿里千问</h3>
+      <p>随 iOS 27.3 开发者 Beta 上线，为 Apple 智能首次在中国大陆开放测试，计划 12 月随正式版推送。分工上，苹果自研模型负责实时翻译、照片消除、通知摘要等端侧基础功能；千问以「扩展」形式支持 Siri、写作工具与视觉智能中的复杂理解与生成请求，用户可自主选择是否开通，请求与回复不用于模型训练。</p>
+      <span class="src">澎湃新闻 · 南方日报 · 界面新闻 · Korea Herald</span>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="date">11.02-05</div>
+    <div>
+      <h3>世界互联网大会乌镇峰会：开源开放成为主线</h3>
+      <p>主题「开源开放 共建共享」，首次发布《携手构建全球开放人工智能行动倡议》18 条具体行动；「互联网之光」博览会展示 1000 余项技术成果。央视报道援引官方数据称，我国开源大模型下载量已突破百亿次；2026 年《政府工作报告》明确支持人工智能开源生态建设。</p>
+      <span class="src">央视网《焦点访谈》 · 腾讯网 · 峰会公开信息</span>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="date">11.04</div>
+    <div>
+      <h3>智能互联网倡议与智能体自律公约同场发布</h3>
+      <p>国家网信办在乌镇峰会提出《智能互联网创新发展合作倡议》八条，涵盖 IPv6、5G-A/6G、卫星互联网与智能算力协同部署，以及智能体互操作国际标准。中国信通院与华为、阿里、腾讯、小米等 20 家单位共同发布《智能体发展自律公约》。</p>
+      <span class="src">中国网信网 · 中国经济网</span>
+    </div>
+  </div>
+</section>
+
+<section id="capital">
+  <div class="section-head"><h2>资本与算力</h2><span>6 条 · 融资 / 市场 / 数据中心</span></div>
+
+  <div class="item">
+    <div class="date">11.07</div>
+    <div>
+      <h3>OpenAI 完成约 110 亿美元首笔融资，估值 1.25 万亿美元</h3>
+      <p>据彭博社援引知情人士，资金已到账，Coatue Management 与 T. Rowe Price 参与首轮，后续本轮总额或扩大至约 200 亿美元。公司原计划以约 1.4 万亿美元估值融资逾 300 亿美元，因 AI 板块承压下调目标。<span class="flag">非官方确认口径。</span></p>
+      <span class="src">彭博社（经金融界 · PANews 转述）</span>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="date">11.05</div>
+    <div>
+      <h3>Sand.ai 完成 2 亿美元 A+ 轮，跻身独角兽</h3>
+      <p>这是该公司 2026 年第三轮融资，10 个月内累计融资 3 亿美元。基石资本、网宿科技联合领投，多家国资与老股东跟投；资金将用于视频基础模型研发、训练与推理基础设施及全球拓展。</p>
+      <span class="src">腾讯网 · 行业周报</span>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="date">11.07</div>
+    <div>
+      <h3>AI 推理公司 Fal 完成 13 亿美元 F 轮</h3>
+      <p>估值由今年 4 月的 80 亿美元翻倍至 160 亿美元，Bessemer Venture Partners 领投，英伟达、Sound Ventures、T. Rowe Price 等参投。据报道其今年早些时候年化营收约 8 亿美元。</p>
+      <span class="src">PANews 融资周报</span>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="date">本周</div>
+    <div>
+      <h3>Anthropic IPO 推进，估值预期随市场回落</h3>
+      <p>据报道公司计划启动 IPO 路演、目标 11 月 16 日当周挂牌，争取感恩节前完成；受科技股波动影响，估值讨论区间由此前约 1.5 万亿美元回落至 1.1–1.5 万亿美元。<span class="flag">S-1 招股书公开于 10 月 27 日（本窗口外），上市节奏与估值均为媒体消息，未经官方确认。</span></p>
+      <span class="src">The Information（经新浪科技转述） · AI Briefing</span>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="date">11.06</div>
+    <div>
+      <h3>美股 AI 板块大幅回调</h3>
+      <p>纳指单日下跌 5.52%，英伟达跌约 4%、台积电跌约 5%，存储板块重挫。市场担忧集中在美联储加息预期、AI 监管趋严与 AI 公司盈利可持续性，以及数据中心建设节奏可能放缓。</p>
+      <span class="src">Reuters 转述 · 行业周报</span>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="date">11.06</div>
+    <div>
+      <h3>算力基建与地方社区博弈加剧</h3>
+      <p>美国地方公投普遍支持限制 AI 数据中心后，OpenAI 发布 National Community Compact，承诺自建自营园区全额承担电力与配套基建成本、公开水/电/噪声影响数据，但不含合作方建设的站点。同日 Google 宣布向怀俄明州首个数据中心投资 170 亿美元，11 月 4 日另宣布马来西亚 150 亿美元扩建。11 月 8 日彭博社报道微软不再续租 Oracle 的 AI 算力，Oracle 股价跌约 4%。</p>
+      <span class="src">AI Museum · Bloomberg · 财联社</span>
+    </div>
+  </div>
+</section>
+
+<section id="policy">
+  <div class="section-head"><h2>政策与治理</h2><span>4 条 · 产业扶持 / 安全 / 版权</span></div>
+
+  <div class="item">
+    <div class="date">11.02</div>
+    <div>
+      <h3>北京经开区印发开源开放信创产业扶持措施</h3>
+      <p>文件 11 月 2 日印发、11 月 5 日公开。聚焦算法理论、软件框架、智算芯片、新型算力集群及具身智能等方向，并前瞻布局量子计算、6G、脑机接口与光电子；对承担重大科技攻关任务的企业给予最高 1:1 资金配套，单项目年度支持最高 3000 万元。</p>
+      <span class="src">北京市人民政府官网 · 财联社</span>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="date">11.05</div>
+    <div>
+      <h3>乌镇峰会发布前沿 AI 安全治理报告</h3>
+      <p>《前沿人工智能安全与治理 2026：风险认知与协同治理》强调，AI 供应链安全需建立持续跟踪、动态评估与风险处置机制。</p>
+      <span class="src">峰会公开信息 · 行业周报</span>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="date">11.01 起</div>
+    <div>
+      <h3>广电总局启动新一轮 AI 微短剧专项治理</h3>
+      <p>治理期 11 月 1 日至 12 月底，本周持续执行。重点规范 AI 微短剧「盗脸」「偷声」问题，并治理低俗化、同质化内容、片名改头换面反复播出、首页首屏推荐同质化等。<span class="flag">起始日略早于本期窗口，因本周仍在执行而收录。</span></p>
+      <span class="src">央视新闻</span>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="date">11.08</div>
+    <div>
+      <h3>AI 音乐版权诉讼升级，权利方起诉 Suno</h3>
+      <p>猫王音乐权利方与 Eminem 部分作品出版方起诉 AI 音乐公司 Suno，主张其生成内容模仿特定艺人的声音与身份，其中猫王一方援引田纳西州 ELVIS Act。Suno 回应称已屏蔽点名具体艺人或歌曲的提示词，并对上传音频与歌词做第三方筛查。</p>
+      <span class="src">The Verge（经 AI 简报转述）</span>
+    </div>
+  </div>
+</section>
+
+<section id="notes">
+  <div class="notes">
+    <h2>核实说明与阅读提示</h2>
+    <ul>
+      <li><strong>已剔除的矛盾条目：</strong>部分模型聚合站列出「11 月 8 日发布 GPT-5.1 / Claude 4 / Gemini 3」等明显过时或与主流报道冲突的内容，未采纳。</li>
+      <li><strong>「开源」口径需分辨：</strong>本周仅百度 ERNIE 5.5 Flash Base 核到确切权重仓库（FP8 / BF16 两版 + 许可协议）。腾讯 Hy4、Kimi K3.1 Pro 等公开表述多为「将近期开源 / 开放权重」，未核到仓库地址；蚂蚁 Ling-3.2-flash 是接口限时免费，并非开源。请勿一概按「已开源」引用。</li>
+      <li><strong>调用量统计范围：</strong>210 万亿 Token 等数据基于 OpenRouter 等特定平台转发的 API 流量测算，不含厂商自营 API、云服务平台、私有化部署与直接面向用户的网页应用，不能等同全球市场份额。</li>
+      <li><strong>资本数字多为媒体口径：</strong>OpenAI 融资、Anthropic IPO 估值与路演节奏均来自「据知情人士 / 媒体报道」，非公司官方确认，可能变动。</li>
+      <li><strong>窗口边界：</strong>本期覆盖 11 月 2 日至 9 日。Anthropic S-1 公开（10/27）、GPT-6.1 Terra 发布（10/26）等属窗口外事件未计入；广电总局治理因本周仍在执行而保留并标注。</li>
+      <li><strong>日期说明：</strong>条目日期为公开发布日或媒体报道日，跨日事件取主要报道日；如与官方公告有出入，以官方为准。内容仅供信息参考，不构成投资建议。</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <b>数据窗口</b> 2026.11.02 – 2026.11.09　·　<b>生成时间</b> 2026.11.09　·　<b>收录</b> 26 条 / 4 个板块<br>
+  <b>主要来源</b> 界面新闻、每日经济新闻、第一财经、央视网、财联社、澎湃新闻、南方日报、新华网、北京市人民政府官网、彭博社与 Reuters 公开转述、Bloomberg、The Verge、Korea Herald、科创板日报、量子位、行业周报等公开报道。<br>
+  本页由 WorkBuddy 整理生成，部署于 GitHub Pages 与 WorkBuddy 应用发布。
+</footer>
+
+</div>
 </body>
 </html>
